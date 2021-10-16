@@ -20,46 +20,34 @@ data = load_data('in1.txt')
 n = data[0][0]
 moves = data[1:]
 max_distance = -1
-distance = 0
-count = 0
 results = []
+indexes = []
 
-for i in range(0, n):
-    results.append(sum_vectors([0, 0], moves[i]))
-    distance = calc_sqr_vec_len(results[-1])
-    if distance > max_distance:
-        max_distance = distance
-    for j in range(0, n):
-        if j == i:
+
+def solve():
+    for i in range(0, n):
+        skip = False
+        start = [0, 0]
+        global max_distance
+        for j in range(0, len(indexes)):
+            if i == indexes[j]:
+                skip = True
+                break
+        if skip:
             continue
         else:
-            results.append(sum_vectors([0, 0], sum_vectors(moves[i], moves[j])))
+            indexes.append(i)
+            for j in range(0, len(indexes)):
+                start = sum_vectors(start, moves[indexes[j]])
+            results.append(start)
             distance = calc_sqr_vec_len(results[-1])
             if distance > max_distance:
                 max_distance = distance
-            for k in range(0, n):
-                if k == j or k == i:
-                    continue
-                else:
-                    results.append(sum_vectors([0, 0], sum_vectors(moves[i], sum_vectors(moves[j], moves[k]))))
-                    distance = calc_sqr_vec_len(results[-1])
-                    if distance > max_distance:
-                        max_distance = distance
-                    for l in range(0, n):
-                        if l == k or l == j or l == i:
-                            continue
-                        else:
-                            results.append(sum_vectors([0, 0], sum_vectors(moves[i], sum_vectors(moves[j], sum_vectors(moves[k], moves[l])))))
-                            distance = calc_sqr_vec_len(results[-1])
-                            if distance > max_distance:
-                                max_distance = distance
-                            for m in range(0, n):
-                                if m == l or m == k or m == j or m == i:
-                                    continue
-                                else:
-                                    results.append(sum_vectors([0, 0], sum_vectors(moves[i], sum_vectors(moves[j], sum_vectors(moves[k], sum_vectors(moves[l], moves[m]))))))
-                                    distance = calc_sqr_vec_len(results[-1])
-                                    if distance > max_distance:
-                                        max_distance = distance
+            while len(results) > 0:
+                results.pop()
+            solve()
+            indexes.pop()
 
+
+solve()
 print(max_distance)
