@@ -1,6 +1,4 @@
-import glob
-import os
-import random
+import sys
 
 
 def load_data(filename: str):
@@ -14,7 +12,7 @@ def load_data(filename: str):
 
 
 def print_data(filename: str, data: str):
-    file = open(filename, 'w')
+    file = open('./output_data/' + filename, 'w')
     file.write(data)
     file.close()
 
@@ -52,29 +50,16 @@ def solve():
             indexes.pop()
 
 
-data = load_data('./input_data/in2.txt')
+input_file = str(sys.argv[1])
+data = load_data(input_file)
 n = data[0][0]
 moves = data[1:]
 max_distance = -1
 results = []
 indexes = []
 solve()
-print(max_distance)
+print_data('out' + str(input_file[-5]) + '.txt', str(max_distance))
 
-
-'''index = 1
-os.chdir('./input_data')
-for file in glob.glob('*.txt'):
-    data = load_data(file)
-    n = data[0][0]
-    moves = data[1:]
-    max_distance = -1
-    results = []
-    indexes = []
-    solve()
-    print(max_distance)
-    #print_data('./output_data/out' + str(index) + '.txt', str(max_distance))
-    #index = index + 1'''
 
 ###FILE GENERATOR###
 '''file = open('./input_data/in2.txt', 'w')
