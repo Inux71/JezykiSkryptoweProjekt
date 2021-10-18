@@ -1,8 +1,9 @@
 import sys
+import os
 
 
 def load_data(filename: str):
-    file = open(filename, 'r')
+    file = open('./input_data/' + filename, 'r')
     data = []
     for line in file:
         line = line.strip()
@@ -50,15 +51,17 @@ def solve():
             indexes.pop()
 
 
-input_file = str(sys.argv[1])
-data = load_data(input_file)
-n = data[0][0]
-moves = data[1:]
-max_distance = -1
-results = []
-indexes = []
-solve()
-print_data('out' + str(input_file[-5]) + '.txt', str(max_distance))
+files = os.listdir('./input_data/')
+file_number = len(files)
+for f in range(1, file_number + 1):
+    data = load_data(str(f) + '.txt')
+    n = data[0][0]
+    moves = data[1:]
+    max_distance = -1
+    results = []
+    indexes = []
+    solve()
+    print_data('out' + str(f) + '.txt', str(max_distance))
 
 
 ###FILE GENERATOR###
