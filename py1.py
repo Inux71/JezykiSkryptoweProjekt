@@ -1,4 +1,3 @@
-import sys
 import os
 
 
@@ -54,7 +53,7 @@ def solve():
 files = os.listdir('./input_data/')
 file_number = len(files)
 for f in range(1, file_number + 1):
-    data = load_data(str(f) + '.txt')
+    data = load_data('in' + str(f) + '.txt')
     n = data[0][0]
     moves = data[1:]
     max_distance = -1
