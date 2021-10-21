@@ -61,11 +61,3 @@ for f in range(1, file_number + 1):
     indexes = []
     solve()
     print_data('out' + str(f) + '.txt', str(max_distance))
-
-
-###FILE GENERATOR###
-'''file = open('./input_data/in2.txt', 'w')
-file.write('10\n')
-for i in range(0, 10):
-    file.write(str(random.randint(-10000, 10000)) + ' ' + str(random.randint(-10000, 10000)) + '\n')
-file.close()'''

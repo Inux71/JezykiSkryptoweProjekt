@@ -29,12 +29,12 @@ body {
 
 .line:first-of-type {
     border-radius: 50px 50px 0 0;
-    margin-top: 0;
+    margin-top: 50px;
 }
 
 .line:last-of-type {
     border-radius: 0 0 50px 50px;
-    margin-bottom: 0;
+    margin-bottom: 50px;
 }
 
 .data {
