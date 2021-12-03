@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 
 def load_data(directory: str):
@@ -30,7 +31,9 @@ def generate_template():
 
 
 def print_data():
-    file = open('raport.html', 'w')
+    time = datetime.now()
+    time = time.strftime("%H-%M-%S")
+    file = open(f'./raporty/{time}_raport.html', 'w')
     file.write(f'''
     <!DOCTYPE HTML>
     <html lang="pl-PL">
