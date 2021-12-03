@@ -3,6 +3,7 @@
 * {
     margin: 0;
     font-family: 'Roboto';
+    color: #fff;
 }
 
 body {
@@ -12,6 +13,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+h1 {
+    margin-top: 50px;
 }
 
 .line {
@@ -44,9 +49,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #000;
 }
 
 .input {
     width: 100%;
     text-align: center;
+    color: #000;
 }

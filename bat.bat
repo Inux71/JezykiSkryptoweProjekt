@@ -7,7 +7,9 @@ echo ----------------------------
 echo 1. Stworz raport
 echo 2. Wyswietl ostatni raport
 echo 3. Usun raporty
-echo 4. Koniec
+echo 4. Uruchom skrypt py1
+echo 5. Uruchom skrypt py2
+echo 6. Koniec
 echo ----------------------------
 set /p "wybor=Podaj opcje: "
 
@@ -48,7 +50,23 @@ if %wybor%==3 (
 )
 
 if %wybor%==4 (
-    goto :eof
+    cls
+    call py1.py
+    echo Plik uruchomiony!
+    
+    goto :menu
 )
+
+if %wybor%==5 (
+    cls
+    call py2.py
+    echo Plik uruchomiony!
+
+    goto :menu
+)
+
+if %wybor%==6 (
+    goto :eof
+) 
 
 pause

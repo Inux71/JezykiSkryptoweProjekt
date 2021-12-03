@@ -42,13 +42,15 @@ def print_data():
     <html lang="pl-PL">
         <head>
             <meta charset="utf-8">
-            <title>Raport</title>
+            <title>{today}_{time}_Raport</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <link rel="stylesheet" href="../style.css">
         </head>
 
         <body>
+            <h1>Kacper Grabiec</h1>
+            <h3>Jezyki Skryptowe PIONEK</h3>
             {generate_template()}
         </body>
     </html>
