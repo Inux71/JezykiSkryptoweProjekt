@@ -16,8 +16,8 @@ set /p "wybor=Podaj opcje: "
 if %wybor%==1 (
     cls
 
-    call py1.py
-    call py2.py
+    call py py1.py
+    call py py2.py
     echo Raport gotowy!
 
     goto :menu
@@ -51,7 +51,7 @@ if %wybor%==3 (
 
 if %wybor%==4 (
     cls
-    call py1.py
+    call py py1.py
     echo Plik uruchomiony!
     
     goto :menu
@@ -59,7 +59,7 @@ if %wybor%==4 (
 
 if %wybor%==5 (
     cls
-    call py2.py
+    call py py2.py
     echo Plik uruchomiony!
 
     goto :menu
@@ -67,6 +67,11 @@ if %wybor%==5 (
 
 if %wybor%==6 (
     goto :eof
-) 
+)
+
+if %wybor% GTR 6 (
+    cls
+    goto :menu
+)
 
 pause
